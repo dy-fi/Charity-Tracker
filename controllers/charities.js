@@ -5,17 +5,25 @@ const Charity = require('../models/charities')
 module.export = (app) => {
 
     // Show all charities
-    app.get('/charities', (req, res) => {
+    app.get('/', (req, res) => {
         Charity.find()
-            .then(charities => {
+            .then((charities) => {
                 res.render('charities-index', {
                     charities: charities
-                });
-            })
-            .catch(e => {
+                })
+            }).catch((e) => {
                 console.log(e);
-            })
+            });
     })
 
-    //
+    // Show one charity
+    app.get('./charities/:id', (req, res) => {
+        Charity.findbyId(req.param.id).then((charity) => {
+            res.render('charities-show', {
+                charity: charity
+            });
+        })
+    }).catch((e) => {
+        console.log(e);
+    });
 }
