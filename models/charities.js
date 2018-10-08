@@ -4,4 +4,5 @@ const Schema = mongoose.Schema
 
 module.exports = mongoose.model('Charity', {
         name: String,
+        
 });
