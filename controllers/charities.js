@@ -1,7 +1,6 @@
 const Charity = require('../models/charities')
 
 // Routes
-
 module.export = (app) => {
 
     // Show all charities
