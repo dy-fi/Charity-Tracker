@@ -1,15 +1,16 @@
 <form action="/charities/comments" method="post">
     <input type="hidden" value="{{charity._id}}" name="charityId">
     <fieldset>
-        <legend>Join the discussion!<legend>
-        <div class="form-group">
-            <div class="form-group">
-                <label for="comment-content">Description</label><br>
-                <textarea class="form-control" id="comment-content" name="content" rows="10" placeholder="Your comment..." /></textarea>
-            </div>
-            <form method="POST" action="/reviews/{{review._id}}?_method=DELETE">
-                <button class="btn btn-primary" type="submit">Delete</button>
-            </form>
-        </div>
+        <legend>Join the discussion!
+            <legend>
+                <div class="form-group">
+                    <div class="form-group">
+                        <label for="comment-content">Description</label><br>
+                        <textarea class="form-control" id="comment-content" name="content" rows="10" placeholder="Your comment..." /></textarea>
+                    </div>
+                    <form method="POST" action="/reviews/{{review._id}}?_method=DELETE">
+                        <button class="btn btn-primary" type="submit">Delete</button>
+                    </form>
+                </div>
     </fieldset>
 </form>

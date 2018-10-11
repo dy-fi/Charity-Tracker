@@ -6,21 +6,19 @@ const bodyParser = require('body-parser')
 const session = require('express-session')
 const mongoose = require('mongoose')
 const mongoDBStore = require('connect-mongodb-session')(session);
-
 // app
 const app = express();
 
 // mongoose connect
-const db = mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/app.js', {
+const db = mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/app', {
     useNewUrlParser: true
 })
 
 // mongo session store
-const store = mongoDBStore({
-    uri: process.env.MONGODB_STORE || 'mongodb://localhost/app.js',
-    databaseName: db,
-    collection: "sessions"
-})
+const store = new mongoDBStore({
+    uri: process.env.MONGODB_STORE || 'mongodb://localhost/app',
+    collection: 'sessions'
+});
 
 // controllers
 const handleCharityRoutes = require('./controllers/charities');

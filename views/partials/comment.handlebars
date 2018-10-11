@@ -1,0 +1,10 @@
+<div class="card">
+    <div class="card-block">
+        <p class="card-text">{{this.content}}</p>
+        <p>
+            <form method="POST" action="/charities/comments/{{this._id}}?_method=DELETE">
+                <button class="btn btn-link" type="submit">Delete</button>
+            </form>
+        </p>
+    </div>
+</div>

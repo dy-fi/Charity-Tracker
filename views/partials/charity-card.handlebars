@@ -2,7 +2,7 @@
     <div class="card-block">
         <!-- Add rating image, charity api ref, and connect card info from json to mongo -->
         <img class="card-img-right" src= {{this.ratingImageUrl}} alt="Image not available">
-        <h2 class="card-title"><a href={{this.charityURL}}>{{this.charityname}}</a></h2>
+        <h2 class="card-title"><a href='/charities/:id'>{{this.charityName}}</a></h2>
         <h6>{{this.CharityOrgID}}</h6>
         <div class="card-body">
             <p class="card-text">
