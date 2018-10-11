@@ -1,13 +1,12 @@
 <div class="card">
     <div class="card-block">
         <!-- Add rating image, charity api ref, and connect card info from json to mongo -->
-        <img class="card-img-right" src= {{this.ratingimage}} alt="Image not available">
-        <h2 class="card-title"><a href="http://api.CharityNavigator.com/v1/organizations/">{{this.charityname}}</a></h2>
-        <h6>{{this.orgID}}</h6>
+        <img class="card-img-right" src= {{this.ratingImageUrl}} alt="Image not available">
+        <h2 class="card-title"><a href={{this.charityURL}}>{{this.charityname}}</a></h2>
+        <h6>{{this.CharityOrgID}}</h6>
         <div class="card-body">
             <p class="card-text">
-                <h5>{{this.accountibilityRating}}</h5>
-                <h5>{{this.financialRating}}</h5>
+                {{this.charityTagLine}}
             </p>
         </div>
     </div>

@@ -1,4 +1,7 @@
 const Charity = require('../models/charities')
+const Comment = require('../models/comments')
+express = require('express')
+app = express.Router()
 
 // Routes
 module.export = (app) => {
@@ -17,12 +20,17 @@ module.export = (app) => {
 
     // Show one charity
     app.get('./charities/:id', (req, res) => {
-        Charity.findbyId(req.param.id).then((charity) => {
-            res.render('charities-show', {
-                charity: charity
+        Charity.findbyId(req.param.id).then(charity => {
+            Comment.find({
+                reviewID: req.params.id
+            }).then(comments => {
+                res.render('charities-show', {
+                    charities, charities,
+                    comments, comments
+                })
+            }).catch((e) => {
+                console.log(e);
             });
         })
-    }).catch((e) => {
-        console.log(e);
-    });
+    })
 }
