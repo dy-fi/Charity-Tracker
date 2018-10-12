@@ -18,7 +18,7 @@ const db = mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/app'
 const store = new mongoDBStore({
     uri: process.env.MONGODB_STORE || 'mongodb://localhost/app',
     collection: 'sessions'
-});
+})
 
 // controllers
 const handleCharityRoutes = require('./controllers/charities');
