@@ -1,0 +1,11 @@
+<div class="card">
+    <div class="card-block">
+        <h4 class="card-title">All donations</h4>
+        <p class="card-text">{{this.donations}}</p>
+        <p>
+            <form method="POST" action="/charities/donations/{{this._id}}?_method=DELETE">
+                <button class="btn btn-link" type="submit">Delete</button>
+            </form>
+        </p>
+    </div>
+</div>

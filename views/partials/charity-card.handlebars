@@ -1,7 +1,7 @@
 <div class="card">
     <div class="card-block">
         <!-- Add rating image, charity api ref, and connect card info from json to mongo -->
-        <img class="card-img-right" src= {{this.ratingImageUrl}} alt="Image not available">
+        <img class="card-img-right" src="" alt="Image not available">
         <h2 class="card-title"><a href='/charities/:id'>{{this.charityName}}</a></h2>
         <h6>{{this.CharityOrgID}}</h6>
         <div class="card-body">
@@ -9,5 +9,11 @@
                 {{this.charityTagLine}}
             </p>
         </div>
+        <fieldset style="align-right" class="col-lg-2">
+            <div class="form-group">
+                <label for="charity-donations">Donate</label><br>
+                <textarea class="form-control" id="charity-donations" name="donations" type="text" placeholder="$$"></textarea>
+            </div>
+        </fieldset>
     </div>
 </div>

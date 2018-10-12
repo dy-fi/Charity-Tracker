@@ -3,10 +3,14 @@
         <h1>{{charity.charityname}}</h1>
         <p>{{charity.charitymission}}</p>
         <p>
-            <form method="POST" action="/charities/{{review._id}}?_method=DELETE">
+            <form method="POST" action='/charities/{{comment._id}}?_method=DELETE'>
                 <button class="btn btn-primary" type="submit">Delete</button>
             </form>
         </p>
+
+        {{#each charity}}
+            {{> donations}}
+        {{/each}}
 
         <hr> {{> comment-form}}
 
