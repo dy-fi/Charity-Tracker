@@ -16,7 +16,7 @@ const db = mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/app'
 
 // mongo session store
 const store = new mongoDBStore({
-    uri: process.env.MONGODB_STORE || 'mongodb://localhost/app',
+    uri: process.env.MONGODB_ || 'mongodb://localhost/app',
     collection: 'sessions'
 })
 
