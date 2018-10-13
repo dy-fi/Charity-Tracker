@@ -2,19 +2,19 @@ const Comment = require('../models/comments')
 commentRouter = express.Router()
 
 // CREATE
-commentRouter.post('/charities/comments', (req, res) => {
+commentRouter.post('/charities/:id', (req, res) => {
     Comment.create(req.body).then(comment => {
-        res.redirect(`/charities/${comment.charityId}`);
+        res.redirect('/charities/:id');
     }).catch((e) => {
         console.log(e);
     });
 });
 
 // DELETE
-commentRouter.delete('/charties/comments/:id', function(req, res) {
+commentRouter.delete('/charties/:id', function(req, res) {
     console.log("DELETE comment")
     Comment.findByIdAndRemove(req.params.id).then((comment) => {
-        res.redirect(`/charities/${comment.charityId}`);
+        res.redirect('/charities/:id');
     }).catch((e) => {
         console.log(e);
     })

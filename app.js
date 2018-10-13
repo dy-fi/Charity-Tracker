@@ -5,7 +5,7 @@ const methodOverride = require('method-override')
 const bodyParser = require('body-parser')
 const session = require('express-session')
 const mongoose = require('mongoose')
-const mongoDBStore = require('connect-mongodb-session')(session);
+
 // app
 const app = express();
 
@@ -14,11 +14,6 @@ const db = mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/app'
     useNewUrlParser: true
 })
 
-// mongo session store
-const store = new mongoDBStore({
-    uri: process.env.MONGODB_URI || 'mongodb://localhost/app',
-    collection: 'sessions'
-})
 
 // controllers
 const handleCharityRoutes = require('./controllers/charities');
@@ -33,17 +28,6 @@ app.engine('handlebars', exphbs({
 }));
 
 app.set('view engine', 'handlebars');
-
-// express session
-app.use(session({
-    secret: 'terces',
-    resave: false,
-    saveUninitialized: true,
-    cookie: {
-        maxAge: 1000 * 60 * 60 // an hour
-    },
-    store: store
-}))
 
 // Method Override
 app.use(methodOverride('_method'));

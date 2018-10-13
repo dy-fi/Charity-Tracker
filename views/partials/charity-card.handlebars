@@ -1,19 +1,19 @@
 <div class="card">
     <div class="card-block">
-        <!-- Add rating image, charity api ref, and connect card info from json to mongo -->
-        <img class="card-img-right" src="" alt="Image not available">
+        <!-- Add rating image, charity api ref, and connect card info from json -->
         <h2 class="card-title"><a href='/charities/:id'>{{this.charityName}}</a></h2>
-        <h6>{{this.CharityOrgID}}</h6>
+        <h6>EIN: {{this.ein}}</h6>
         <div class="card-body">
             <p class="card-text">
-                {{this.charityTagLine}}
+                {{this.tagLine}}
             </p>
         </div>
-        <fieldset style="align-right" class="col-lg-2">
-            <div class="form-group">
-                <label for="charity-donations">Donate</label><br>
-                <textarea class="form-control" id="charity-donations" name="donations" type="text" placeholder="$$"></textarea>
-            </div>
-        </fieldset>
+        <form actions="/charities/comments" method="POST">
+            <fieldset style="align-center" class="col-lg-2">
+                <input type="hidden" value="{{charity._id}}" name="charityId">
+                <h5><label for="charity-donations">Donations</label><h5>
+                <textarea class="form-control" id="charity-donations" name="donations" type="text" rows="1" placeholder="$$"></textarea>
+            </fieldset>
+        </form>
     </div>
 </div>

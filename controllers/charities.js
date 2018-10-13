@@ -14,14 +14,12 @@ charityRouter.get('/', (req, res) => {
         const resBody = JSON.parse(body)
         res.render('charities-index', {
             charities: resBody
-        }).catch(e => {
-            console.log(e)
         })
     })
 })
 
 // Show one charity // READ
-charityRouter.get('./charities/:id', (req, res) => {
+charityRouter.get('/charities/:id', (req, res) => {
     request('https://api.data.charitynavigator.org/v2/' + req.params.id + '?app_key=5b9735cccc4ca8f9c6f76b8eb2060734&app_id=99b5434c', (err, response, body) => {
         Charity.findbyId(req.param.id).then(charity => {
             Comment.find({
@@ -43,7 +41,7 @@ charityRouter.put('charities-show/:id', (req, res) => {
     request('https://api.data.charitynavigator.org/v2/' + req.params.id + '?app_key=5b9735cccc4ca8f9c6f76b8eb2060734&app_id=99b5434c', (err, response, body) => {
         Charity.findbyIdAndUpdate(req.param.id, req.body).then(charity => {
             res.redirect('/charities/${charity._id}')
-        }).catch((e) => {
+        }).catch(e => {
             console.log(e);
         })
     })
