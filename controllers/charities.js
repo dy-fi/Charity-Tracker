@@ -20,13 +20,14 @@ charityRouter.get('/', (req, res) => {
 
 // Show one charity // READ
 charityRouter.get('/charities/:id', (req, res) => {
-    request('https://api.data.charitynavigator.org/v2/' + req.params.id + '?app_key=5b9735cccc4ca8f9c6f76b8eb2060734&app_id=99b5434c', (err, response, body) => {
-        Charity.findbyId(req.param.id).then(charity => {
+    request('https://api.data.charitynavigator.org/v2/Lists/' + req.params.id + '?app_key=5b9735cccc4ca8f9c6f76b8eb2060734&app_id=99b5434c', (err, response, body) => {
+        Charity.findById(req.param.id).then(charity => {
             Comment.find({
-                reviewID: req.params.id
+                charitiyID: req.params.id
             }).then(comments => {
+                const resBody = JSON.parse(body)
                 res.render('charities-show', {
-                    charities: charities,
+                    charity: resBody,
                     comments: comments
                 })
             }).catch(e => {

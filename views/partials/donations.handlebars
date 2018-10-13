@@ -4,7 +4,12 @@
         <p class="card-text">{{this.donations}}</p>
         <p>
             <form method="POST" action="/charities/donations/{{this._id}}?_method=DELETE">
-                <button class="btn btn-link" type="submit">Delete</button>
+                <div class="form-group">
+                    <button class="btn btn-primary" type="submit">Save Review</button>
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-link" type="submit">Delete</button>
+                </div>
             </form>
         </p>
     </div>
